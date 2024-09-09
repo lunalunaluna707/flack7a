@@ -7,14 +7,6 @@ app = Flask(__name__)
 def hello_world():
     return 'Hola, mundo'
 
-@app.route('/esclavos')
-def home():
-    return render_template('hello.html')
-
-@app.route("/esclavos/guardar", methods=["POST"])
-def esclavos_Guardar():
-    return f"Matricula: {request.form["matricula"]} Nombre: {request.form["nombre"]}"
-
 @app.route('/alumnos')
 def alumnos():
     return render_template('adios.html')
