@@ -19,7 +19,6 @@ def evento()
       cluster='us2',
       ssl=True
     )
-
     pusher_client.trigger('conexion', 'evento', {'message': 'hello world'})
 
 @app.route('/alumnos')
