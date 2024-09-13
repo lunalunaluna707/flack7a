@@ -28,7 +28,7 @@ def evento():
       cluster='us2',
       ssl=True
     )
-     pusher_client.trigger("conexion", "evento", request.args)
+    pusher_client.trigger("conexion", "evento", request.args)
 
 if __name__ == '__main__':
     app.run(debug=True)
