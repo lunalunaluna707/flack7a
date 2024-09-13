@@ -11,8 +11,8 @@ app = Flask(__name__)
 def index():
     return render_template("app.html")
     
-@app.route("/evento"):
-def evento()
+@app.route("/evento")
+def evento():
     pusher_client = pusher.Pusher(
       app_id='1864238',
       key='2ea386b7b90472052932',
