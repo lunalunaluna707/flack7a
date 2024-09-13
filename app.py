@@ -3,9 +3,9 @@ from flask import render_template
 from flask import request
 
 app = Flask(__name__)
-@app.route('/')
-def hello_world():
-    return 'Hola, mundo'
+@app.route("/")
+def index():
+    return render_template("app.html")
 
 @app.route('/alumnos')
 def alumnos():
