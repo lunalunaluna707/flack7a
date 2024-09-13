@@ -20,7 +20,7 @@ def evento()
       ssl=True
     )
 
-    pusher_client.trigger('conxion', 'evento', {'message': 'hello world'})
+    pusher_client.trigger('conexion', 'evento', {'message': 'hello world'})
 
 @app.route('/alumnos')
 def alumnos():
