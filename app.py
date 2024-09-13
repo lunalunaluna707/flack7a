@@ -11,16 +11,7 @@ app = Flask(__name__)
 def index():
     return render_template("app.html")
     
-@app.route("/evento")
-def evento():
-    pusher_client = pusher.Pusher(
-      app_id='1864238',
-      key='2ea386b7b90472052932',
-      secret='578df1dc2b254c75c850',
-      cluster='us2',
-      ssl=True
-    )
-    pusher_client.trigger("conexion","evento", {"txtTemperatura": 35, "txtHumedad": 0.6, "dpFechaHora": "2024-09-12 20:13:00"})
+
 
 @app.route('/alumnos')
 def alumnos():
@@ -31,7 +22,17 @@ def alumnos_Guardar():
     matricula= request.form["txtMatriculaFA"]
     nombre=request.form["txtNombreApellidoFA"]
     return f"Matricula: {matricula} Nombre: {nombre}"
-
+    
+@app.route("/evento")
+def evento():
+    pusher_client = pusher.Pusher(
+      app_id='1864238',
+      key='2ea386b7b90472052932',
+      secret='578df1dc2b254c75c850',
+      cluster='us2',
+      ssl=True
+    )
+    pusher_client.trigger("conexion","evento", {"txtTemperatura": 35, "txtHumedad": 0.6, "dpFechaHora": "2024-09-12 20:13:00"})
 
 if __name__ == '__main__':
     app.run(debug=True)
