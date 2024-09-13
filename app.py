@@ -10,7 +10,8 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     return render_template("app.html")
-@app.route("/evento")
+    
+@app.route("/evento"):
 def evento()
     pusher_client = pusher.Pusher(
       app_id='1864238',
