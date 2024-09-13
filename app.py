@@ -4,15 +4,11 @@ from flask import request
 
 import pusher
 
-
-
 app = Flask(__name__)
 @app.route("/")
 def index():
     return render_template("app.html")
     
-
-
 @app.route('/alumnos')
 def alumnos():
     return render_template('adios.html')
@@ -23,7 +19,7 @@ def alumnos_Guardar():
     nombre=request.form["txtNombreApellidoFA"]
     return f"Matricula: {matricula} Nombre: {nombre}"
     
-@app.route("/evento")
+@app.route("/evento", methods=["GET"])
 def evento():
     pusher_client = pusher.Pusher(
       app_id='1864238',
@@ -32,7 +28,7 @@ def evento():
       cluster='us2',
       ssl=True
     )
-    pusher_client.trigger("conexion","evento", {"txtTemperatura": 35, "txtHumedad": 0.6, "dpFechaHora": "2024-09-12 20:13:00"})
+     pusher_client.trigger("conexion", "evento", request.args)
 
 if __name__ == '__main__':
     app.run(debug=True)
